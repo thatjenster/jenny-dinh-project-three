@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Sweaty in Minutes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"> 
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- header/hero section of page begins -->
+    <header>
+        <div class="wrapperContainer">
+            <!-- wrapper begins -->
+            <!-- content section of header/hero -->
+            <div class="content">
+                <h1>Got Five Minutes?</h1>
+                <p>Get a quick workout in during your <em>BREAK!</em> You have 5 minutes to complete as many rounds as you can!</p>
+                <button><a href="#containerId">Let's Sweat</a></button>
+            </div>
+            <!-- main image in header/hero  -->
+            <div class="imageContent">
+                <img src="assets/cute-smiling-happy-strong-avocado-health-fitness-set_92289-263.png" alt="6 cartoon avocadoes in workout gears">
+            </div>
+        </div>
+        <!-- wrapper ends -->
+    </header>
+    <!-- header/hero sections ends -->
+    <!-- main section of page begins -->
+    <main>
+        <!-- wrapper begins -->
+        <div class="wrapperContainer">
+            <div>
+            <!-- div of form and options of workout begins -->
+                <h2>Level of Intensity:</h2>
+                <form class="repsOptions">
+                    <input type="button" value="Easy">
+                    <!-- <input type="button" value="Moderate">
+                    <input type="button" value="Intense"> -->
+                </form>
+                <!-- grid of workout begins here! -->
+                <div class="workoutSection">
+                    <div class="contentImage grid">
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Burpees</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Push Up</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Mountain Climbers</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Up up Down Down</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Squats</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Crunches</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Roll Up</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Split Jump</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Jump Jacks</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Tricep Dips</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Power Squats</div>
+                        </div>
+                        <div class="emptyBox">
+                            <div class="filled" draggable="true">Glute Bridge</div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="assets/asset1.png">
+                    </div>
+                </div>
+                <div class="createWorkoutList">
+                    <div>
+                        <h2>Your Workout of the Day</h2>
+                        <span id="amount"></span>
+                    </div>
+                    <div class="emptyBox"></div>
+                    <div class="emptyBox"></div>
+                    <div class="emptyBox"></div>
+                    <div class="emptyBox"></div>
+                </div>
+            <div>
+        </div>
+        <!-- form and options ends here -->
+        <section>
+            <!-- Timer section countdown of 5 minutes -->
+            <div id="timer">
+                <span id="mins">05:</span>
+                <span id="seconds">00</span>  
+            </div>
+            <div id="controls">
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="reset">Reset</button>
+            </div>
+            <!-- timer ends here -->
+        </section>
+    </main>
+    <!-- main section of page ends -->
+    <!-- footer content goes here! -->
+    <footer>
+        <div class="wrapperContainer">
+            <p>@thatjenster</p>
+        </div>
+    </footer>
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src="javascript/app.js"></script>
+</body>
+</html>
