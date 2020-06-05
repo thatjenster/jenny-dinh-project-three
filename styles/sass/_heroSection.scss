@@ -1,0 +1,82 @@
+.flexContainer {
+    display: flex;
+    justify-content: center;
+}
+@keyframes border {
+    0% {
+        background-size:    0 3px,
+                            3px 0,
+                            0 3px,
+                            3px 0;
+    }
+    25% {
+        background-size:    100% 3px,
+                            3px 0,
+                            0 3px,
+                            3px 0;
+    }
+    50% {
+        background-size:    100% 3px,
+                            3px 100%,
+                            0 3px,
+                            3px 0;
+    }
+    75% {
+        background-size:    100% 3px,
+                            3px 100%,
+                            100% 3px,
+                            3px 0;
+    }
+    100% {
+        background-size:    100% 3px,
+                            3px 100%,
+                            100% 3px,
+                            3px 100%;
+    }
+}
+
+.content {
+    width: 45%;
+    margin: 2rem auto;
+    padding: 2em;
+    background-repeat: no-repeat;
+    background-image:   linear-gradient(to right, $primaryColor 100%, $primaryColor 100%),
+                        linear-gradient(to bottom, $primaryColor 100%, $primaryColor 100%),
+                        linear-gradient(to right, $primaryColor 100%, $primaryColor 100%),
+                        linear-gradient(to bottom, $primaryColor 100%, $primaryColor 100%);
+    background-size:    100% 3px,
+                        3px 100%,
+                        100% 3px,
+                        3px 100%;
+    background-position:    0 0,
+                            100% 0,
+                            100% 100%,
+                            0 100%;
+    animation: border 4s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+.content,
+.imageContent {
+    margin: 50px;
+    
+}
+
+.content p {
+    font-family: $secondFont;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+button {
+    @include primaryButton;
+}
+button:hover,
+button:focus {
+    background-color: #F8F7FF;
+}
+a {
+    color: black;
+    text-decoration: none;
+}

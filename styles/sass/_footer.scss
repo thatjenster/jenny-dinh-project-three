@@ -1,0 +1,16 @@
+footer {
+    background-color: $primaryColor;
+}
+.awesome {
+    font-size: 3rem;
+    padding: 20px;
+}
+.awesome:hover,
+.awesome:focus {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px $styleColor, 0 0 30px $styleColor, 0 0 40px $styleColor, 0 0 60px $styleColor, 0 0 50px $styleColor;
+}
+p {
+    font-size: 2rem;
+    font-family: $mainFont;
+    font-weight: 700;
+}

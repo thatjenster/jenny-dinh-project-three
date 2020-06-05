@@ -1,0 +1,48 @@
+@import 'setup';
+@import 'mixinVariables';
+@import 'heroSection';
+@import 'mainSection';
+@import 'workoutPlaylist';
+@import 'footer';
+@import 'mediaQuery';
+
+
+// Universal for entire page
+html, 
+body {
+    font-size: 100%;
+    background-color: $bgColor;
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: 120vh;
+}
+img {
+    display: block;
+    width: 100%;
+}
+.wrapperContainer {
+     @include wrapper;
+}
+h1 {
+    font-family: $mainFont;
+    font-size: 5rem;
+}
+h2 {
+    font-size: 2rem;
+    font-family: $secondFont;
+    padding: 30px 0;
+}
+h3 {
+    font-size: 1.2rem;
+    font-family: $mainFont;
+    text-align: center;
+}
+h1,
+h2,
+h3 {
+    margin: 0 auto;
+    font-weight: 400;
+}
+
