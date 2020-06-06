@@ -8,16 +8,10 @@ input[type=button]:focus {
     box-shadow: 0 0 30px 30px $styleColor inset;
 
 }
-
-#timer {
-    border-radius: 10px;
-    background-color: $styleColor;
-        span {
-        align-items: center;
-        font-size: 5rem;
-        color: #ffff;
-    }
+.repsOptions {
+    padding-top: 40px;
 }
+
 .containerOfLists {
     margin: 40px auto;
 
@@ -28,14 +22,4 @@ input[type=button]:focus {
     font-family: $secondFont;
     box-shadow: inset 0 -0.5em 0 rgba(162, 94, 189, 0.3);
     transition: box-shadow .2s ease-in-out;
-}
-#timerCountDown {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#controls button {
-    margin: 10px;
-    padding: 20px;
 }

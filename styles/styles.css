@@ -354,17 +354,8 @@ input[type=button]:focus {
           box-shadow: 0 0 30px 30px #6C4B5E inset;
 }
 
-#timer {
-  border-radius: 10px;
-  background-color: #6C4B5E;
-}
-
-#timer span {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 5rem;
-  color: #ffff;
+.repsOptions {
+  padding-top: 40px;
 }
 
 .containerOfLists {
@@ -383,27 +374,6 @@ input[type=button]:focus {
   transition: box-shadow .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
 }
 
-#timerCountDown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#controls button {
-  margin: 10px;
-  padding: 20px;
-}
-
 .mainWorkoutSection {
   margin: 0 auto;
   position: relative;
@@ -411,18 +381,6 @@ input[type=button]:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#inputYourOwn {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  padding: 20px 30px;
-  border: 2px solid #ECBEB4;
-  font-size: 1.6rem;
-  font-family: "Lato", sans-serif;
-  border-radius: 10px;
-  margin: 40px 0;
-  width: 100%;
 }
 
 #listOfWorkout {
@@ -437,85 +395,74 @@ li {
   list-style-type: none;
   cursor: pointer;
   position: relative;
+  font-size: 1.5rem;
+  font-family: "Lato", sans-serif;
+  padding: 20px 0;
 }
 
-li input {
-  display: none;
-}
-
-li label {
-  position: relative;
-  font-size: 1.3rem;
-  cursor: pointer;
-  padding: 20px 20px 20px 40px;
-  display: block;
-}
-
-li span.box {
-  display: inline-block;
-  border-radius: 6px;
-  border: 2px solid #ECBEB4;
-  width: 26px;
-  height: 26px;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-}
-
-li span.box:before, li span.box:after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 16px;
-  border-radius: 40px;
-  background: white;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-li span.box:before {
-  -webkit-transform: rotate(45deg) translateY(-5px) translateX(10px) scale(0);
-          transform: rotate(45deg) translateY(-5px) translateX(10px) scale(0);
-}
-
-li span.box:after {
-  height: 8px;
-  -webkit-transform: rotate(-45deg) translateY(10px) translateX(-4px) scale(0);
-          transform: rotate(-45deg) translateY(10px) translateX(-4px) scale(0);
-}
-
-li input:checked + label span.box {
-  background: #6C4B5E;
-  border-color: #6C4B5E;
-}
-
-li input:checked + label span.box:before {
-  -webkit-transform: rotate(45deg) translateY(-5px) translateX(10px) scale(1);
-          transform: rotate(45deg) translateY(-5px) translateX(10px) scale(1);
-}
-
-li input:checked + label span.box:after {
-  height: 8px;
-  -webkit-transform: rotate(-45deg) translateY(10px) translateX(-4px) scale(1);
-          transform: rotate(-45deg) translateY(10px) translateX(-4px) scale(1);
-}
-
-li:hover, li:focus {
+li:hover,
+li:focus {
   background: rgba(233, 155, 243, 0.1);
 }
 
-li:not(:last-child):before {
+li:not(:last-child)::before {
   content: "";
   position: absolute;
   top: 100%;
   background: rgba(236, 190, 180, 0.6);
   height: 2px;
   width: calc(100% - 40px);
-  left: 40px;
+}
+
+.timerContainer {
+  background-color: #F8F7FF;
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 200;
+  text-align: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 1.3em;
+}
+
+button:disabled {
+  color: rgba(108, 75, 94, 0.6);
+}
+
+#clock-container {
+  margin: 30px 30px 30px auto;
+  border: 2px solid;
+  border-color: #6C4B5E;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  display: table;
+  overflow: hidden;
+  position: relative;
+}
+
+#clock-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#clock-counter {
+  font-size: 5em;
+  text-align: center;
+  margin: auto;
+}
+
+#clock-container > button {
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 1em;
+  min-width: 95px;
 }
 
 footer {
@@ -536,6 +483,34 @@ p {
   font-size: 2rem;
   font-family: "Shadows Into Light", cursive;
   font-weight: 700;
+}
+
+.floatContainer {
+  float: right;
+}
+
+@media only screen and (max-width: 750px) {
+  @-webkit-keyframes border {
+    display: none;
+  }
+  @keyframes border {
+    display: none;
+  }
+  .flexContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .content {
+    background-image: none;
+  }
+  .content,
+  .imageContent {
+    width: 100%;
+    margin: 0;
+    padding: 40px;
+  }
 }
 
 html,
@@ -568,13 +543,13 @@ h1 {
 h2 {
   font-size: 2rem;
   font-family: "Lato", sans-serif;
-  padding: 30px 0;
 }
 
 h3 {
   font-size: 1.2rem;
   font-family: "Shadows Into Light", cursive;
   text-align: center;
+  padding: 40px 0;
 }
 
 h1,

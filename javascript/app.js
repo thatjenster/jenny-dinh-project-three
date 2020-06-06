@@ -1,13 +1,11 @@
 // Make a name space object 
 const myWorkoutPlaylist = {};
 
-// cache selectors 
-// When click 'Let's Sweat' button will scroll down to the main section with the ID of #down
 
+// When click 'Let's Sweat' button will scroll down to the main section with the ID of #down
 myWorkoutPlaylist.startButton = function(){
     $('.startBtn').on('click', 'a[href^="#"]', function (e) {
         e.preventDefault();
-        console.log("I was here");
         $('html, body').stop().animate({
             scrollTop: $($(this).attr('href')).offset().top
         }, 'slow');
@@ -16,7 +14,6 @@ myWorkoutPlaylist.startButton = function(){
 
 // Build a function to show level of intensity 
 // Level of Intensity chosen by user
-
 myWorkoutPlaylist.delete = function deleteReps(){
     $('#amount').empty();  
 }
@@ -39,101 +36,90 @@ myWorkoutPlaylist.showIntensityIntense = $('#intenseBtn').on('click', function()
     $('#amount').append(`${intenseBtn}`);
 })
 
+// when you click on a workout move it will dispense to the playlist
+myWorkoutPlaylist.listToMove =
+$('#listOfWorkout').on('click', 'li', function () {
+    console.log(this)
+    $(this)
+      .appendTo( $('#yourChoice') )
+});
 
-// Workout playlist that you can choose
-myWorkoutPlaylist.chooseYourPlaylist = 
-$('#inputYourOwn').keypress(function (event) {
-    let keycode = event.keyCode ?
-    event.keyCode : event.which;
+myWorkoutPlaylist.clickToMoveBack = 
+$('#yourChoice').on('click', 'li', function(){
+    $(this).appendTo($('#listOfWorkout'))
+});
+
+
+myWorkoutPlaylist.timerClock = function() {
+    let session = 300;
+    let clockTime = session;
+    let clockRunning = false;
+    let countdownID;
     
-    if (keycode == "13") {
-		if ($(this).val().length !== 0) {
-			let count = $("span.box").length + 1;
+    let inMinSec = function(time) {
+        let minute = Math.floor(time / 60);
+        let second = time % 60;
+    
+        if (second < 10) {
+            second = '0' + second.toString();
+        }
+        return minute + ':' + second;
+    };
+    
+    let updateTimer = function() {
+            $('#clock-counter').text(inMinSec(session));
+        }
+    
+    let updateClockCounter = function() {
+        $('#clock-counter').text(inMinSec(clockTime));
+    }
 
-			$("#listOfWorkout").prepend(
-				'<li><input id="checkbox-' +
-					count +
-					'" type="checkbox"><label for="checkbox-' +
-					count +
-					'">' +
-					$(this).val() +
-					'<span class="box"></span></label></li>'
-			);
-			$(this).val("");
-		}
-	}
-});
+    //Initialize the the user interface
+    let resetApp = function() {
+        clockTime = session;
+        updateTimer();
+        updateClockCounter();
+        $('#clock-button').text('START');
+        $('#reset').attr('disabled', true);
+    }
+    
+    resetApp();
+    
+    let countdown = function() {
+        if (clockTime > 0 && clockRunning) {
+            clockTime -= 1;
+            updateClockCounter();
+        }
+    };
+    //Start-Stop button when click on
+    $('#clock-button').on('click', function() {
+        if (clockRunning) {
+            clockRunning = false;
+            window.clearInterval(countdownID);
+            $('#clock-button').text('RESUME');
+            $('#reset').attr('disabled', false);
+        } else {
+            clockRunning = true;
+            countdownID = window.setInterval(countdown, 1000);
+            $('#clock-button').text('STOP');
+            $('#reset').attr('disabled', true);
+        }
+    });
 
+    //Button that reset the clock 
+    $('#reset').on('click', function() {
+        resetApp();
+    
+    });
+}
 
-myWorkoutPlaylist.whenClick = 
-
-$("#listOfWorkout").on("click", "label", function () {
-
-
-});
-
-// function of the button to START/STOP/RESET timer when neccessary 
-
-let timerMinutes = 04;
-let timerSeconds = 60;
-
-myWorkoutPlaylist.timerClockStart = 
- $('#start').on('click', function(){
-   let x = setInterval(
-
-        function(){
-
-            timerSeconds--;
-            $('#mins').html(`${timerMinutes}`);
-           
-            if (timerSeconds < 10) {
-                $('#seconds').html(`:0${timerSeconds}`);
-                console.log(`Less than ${timerMinutes} ${timerSeconds}`);
-            } else {
-                $('#seconds').html(`:${timerSeconds}`);
-                console.log(`TIMER:${timerMinutes} ${timerSeconds}`);
-            }
-            if (timerSeconds === 0 ) {
-                timerMinutes--;
-                timerSeconds = 60;
-                console.log('This is working')
-            } 
-
-            if (timerMinutes === 2 && timerSeconds === 30){
-                alert('Keep Going! Dont stop there');
-                console.log(`I am at line 70 ${timerMinutes}m${timerSeconds}s`);
-            } 
-
-            if (timerSeconds === 60 && timerMinutes === -1) {
-                clearInterval(x);
-                alert('Congradulations!');
-                console.log('This is cool');
-            }    
-            },1000)
-
-            let stopTimer = function(){
-                clearInterval(x);
-
-            }
-
-            $('#stop').on('click', function(){
-                stopTimer();
-                console.log('hello')
-            })
-
-
-            $('#reset').on('click', function(){
-                $('#mins').html('05:');
-                $('#seconds').html('00');
-            })
-});
-
-
-
-
+myWorkoutPlaylist.init = () => {
+    myWorkoutPlaylist.startButton();
+    myWorkoutPlaylist.timerClock();
+}
 
 $(document).ready(function(){
-    // myWorkoutPlaylist.startButton();
+    myWorkoutPlaylist.init();
 });
 
    

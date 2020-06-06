@@ -1,0 +1,19 @@
+// Responsive Design from Desktop to Tablet 
+@media only screen and (max-width: 750px) {
+   
+    @keyframes border {
+        display: none;
+    }
+    .flexContainer {
+        flex-direction: column;
+    }
+    .content{
+        background-image: none;
+    }
+    .content,
+    .imageContent {
+        width: 100%;
+        margin: 0;
+        padding: 40px;
+    }
+}

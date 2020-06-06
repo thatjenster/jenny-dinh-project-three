@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Sweaty in Minutes</title>
     <link href="https://fonts.googleapis.com/css2?family=Catamaran&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"> 
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/430a1f2223.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -17,14 +15,16 @@
         <div class="wrapperContainer">
             <!-- wrapper begins -->
             <!-- content section of header/hero -->
-            <div class="content">
-                <h1>Got Five Minutes?</h1>
-                <p>Get a quick workout in during your <em>BREAK!</em> You have 5 minutes to complete as many rounds as you can!</p>
-                <button><a href="#containerId">Let's Sweat</a></button>
-            </div>
-            <!-- main image in header/hero  -->
-            <div class="imageContent">
-                <img src="assets/cute-smiling-happy-strong-avocado-health-fitness-set_92289-263.png" alt="6 cartoon avocadoes in workout gears">
+            <div class="flexContainer">
+                <div class="content">
+                    <h1>Got Five Minutes?</h1>
+                    <p>Get a quick workout in during your <em>BREAK!</em> You have 5 minutes to complete the set! Are you up for the Challenge?</p>
+                    <button class="startBtn"><a href="#down">Let's Sweat</a></button>
+                </div>
+                <!-- main image in header/hero  -->
+                <div class="imageContent">
+                    <img src="assets/workout_4x.png" alt="carton women in Yoga Pose">
+                </div>
             </div>
         </div>
         <!-- wrapper ends -->
@@ -33,94 +33,86 @@
     <!-- main section of page begins -->
     <main>
         <!-- wrapper begins -->
-        <div class="wrapperContainer">
-            <div>
+        <section class="wrapperContainer">
+            <div id="down">
             <!-- div of form and options of workout begins -->
-                <h2>Level of Intensity:</h2>
+                <h2>Choose your level of INTENSITY:</h2>
                 <form class="repsOptions">
-                    <input type="button" value="Easy">
-                    <!-- <input type="button" value="Moderate">
-                    <input type="button" value="Intense"> -->
+                    <input type="button" id="easyBtn" value="Easy">
+                    <input type="button" id="modBtn"value="Moderate">
+                    <input type="button" id="intenseBtn" value="Hard">
                 </form>
-                <!-- grid of workout begins here! -->
-                <div class="workoutSection">
-                    <div class="contentImage grid">
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Burpees</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Push Up</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Mountain Climbers</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Up up Down Down</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Squats</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Crunches</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Roll Up</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Split Jump</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Jump Jacks</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Tricep Dips</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Power Squats</div>
-                        </div>
-                        <div class="emptyBox">
-                            <div class="filled" draggable="true">Glute Bridge</div>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="assets/asset1.png">
-                    </div>
-                </div>
-                <div class="createWorkoutList">
-                    <div>
-                        <h2>Your Workout of the Day</h2>
-                        <span id="amount"></span>
-                    </div>
-                    <div class="emptyBox"></div>
-                    <div class="emptyBox"></div>
-                    <div class="emptyBox"></div>
-                    <div class="emptyBox"></div>
-                </div>
             <div>
-        </div>
-        <!-- form and options ends here -->
+        </section>
+        <!-- Section of the scroll bar with workout moves -->
+        <section class="wrapperContainer mainWorkoutSection">
+            <div id="movesOfExercise">
+                <h3>Please choose a minimum of 4 moves</h3>
+                <div class="listOfWorkout">
+                    <ul id="listOfWorkout">
+                        <li>Burpees</li>
+                        <li>Jumping Jacks</li>
+                        <li>Squat</li>
+                        <li>High Knee</li>
+                        <li>Push up</li>
+                        <li>Power Squat</li>
+                        <li>Hip Dips</li>
+                        <li>Mountain Climbers</li>
+                        <li>Plank Shoulder Tap</li>
+                        <li>Sit ups</li>
+                        <li>Tricep Dips</li>
+                        <li>Split Jump Lunge</li>
+                        <li>Calf Raises</li>
+                        <li>Butt Kicks</li>
+                        <li>Russian Twist</li>
+                        <li>Toe Touch</li>
+                        <li>Glute Bridge</li>
+                        <li>Bicycles</li>
+                        <li>Plank Jacks</li>
+                        <li>Skaters</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="containerOfLists">
+                <h2>Your Workout of the Day</h2>
+                <span id="amount"></span>
+                <div>
+                    <ol id="yourChoice"></ol>
+                </div>
+            </div>
+        </section>
+        <!-- Input time clock here -->
         <section>
-            <!-- Timer section countdown of 5 minutes -->
-            <div id="timer">
-                <span id="mins">05:</span>
-                <span id="seconds">00</span>  
+            <div class="timerContainer" class="wrapperContainer">
+                <div id="clock-container" >
+                    <div id="clock-content">
+                        <div>You got this!</div>
+                        <div id="clock-counter">5:00</div>
+                        <button id="clock-button">START</button>
+                        <button id="reset" disabled>RESET</button>
+                    </div>
+                </div>
             </div>
-            <div id="controls">
-                <button id="start">Start</button>
-                <button id="stop">Stop</button>
-                <button id="reset">Reset</button>
-            </div>
-            <!-- timer ends here -->
         </section>
     </main>
     <!-- main section of page ends -->
     <!-- footer content goes here! -->
-    <footer>
+    <footer class="clearfix">
         <div class="wrapperContainer">
-            <p>@thatjenster</p>
+            <div class="floatContainer">
+                <p>@thatjenster</p>
+                <a href="https://twitter.com/thatjenster"><i class="fa fa-twitter awesome" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/jennyt.dinh/"><i class="fa fa-instagram awesome"></i></a>
+                <a href="https://thatjenster.wordpress.com/"><i class="fa fa-wordpress awesome"></i></a>
+                <a href="https://github.com/that-jenster"><i class="fa fa-github awesome"></i></a>
+            </div>
         </div>
     </footer>
-    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <!-- Footer ends here -->
+    <!-- Load Jquery and Javascript File here! -->
+   <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="javascript/app.js"></script>
+
 </body>
 </html>
