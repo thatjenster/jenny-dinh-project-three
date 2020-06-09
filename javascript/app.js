@@ -47,7 +47,6 @@ myWorkoutPlaylist.workoutMovements = function() {
       
             timeoutId = setTimeout ( () => {
                 $(this).find('img').show(500);
-                console.log($(this).find('img'));
             }, 800);
         })
     $('.chooseThis').on('mouseout', function(){
@@ -75,19 +74,19 @@ $('.chooseThis').on('click', function (e) {
 });
 
 myWorkoutPlaylist.clickToMoveBack = 
-$('#yourChoice').on('click', 'li', function(){
-    $(this).appendTo($('#listOfWorkout')); 
-    $('.chooseThis').on('mouseover', function(){
+$('#yourChoice').on('click', 'li', function(){ 
+    $(this).on('mouseover', function(){
       
         timeoutId = setTimeout ( () => {
             $(this).find('img').show(500);
             console.log($(this).find('img'));
         }, 800);
     })
-    $('.chooseThis').on('mouseout', function(){
+    $(this).on('mouseout', function(){
         clearTimeout(timeoutId);
         $(this).find('img').hide(500);
     })
+    $(this).appendTo($('#listOfWorkout'));
 });
 
 
