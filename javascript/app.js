@@ -54,8 +54,6 @@ $('#intenseBtn').on('click', function(e){
 let timeoutId = null;
 // when you click on a workout move it will dispense to the playlist
 myWorkoutPlaylist.workoutMovements = function() {
-
-    
     $('.chooseThis').on('mouseover', function(){
       
             timeoutId = setTimeout ( () => {
@@ -70,17 +68,15 @@ myWorkoutPlaylist.workoutMovements = function() {
 
 myWorkoutPlaylist.dispensePlaylist = 
 $('.chooseThis').on('click', function (e) { 
-    if($('#yourChoice')[0].children.length === 4 ) {
+    if($('#yourChoice')[0].children.length >= 4 ) {
         Swal.fire({
             title: 'Sorry!',
             text: 'You can only choose 4',
             confirmButtonText: 'OKAY'
           });
-
         $('html,body').animate({
         scrollTop: $(".containerOfLists").offset().top},
         'slow');
-
     } else {
         clearTimeout(timeoutId);
         $(this).delay(100).appendTo($('#yourChoice'));
@@ -93,7 +89,6 @@ $('.chooseThis').on('click', function (e) {
 myWorkoutPlaylist.clickToMoveBack = 
 $('#yourChoice').on('click', 'li', function(){ 
     $(this).on('mouseover', function(){
-      
         timeoutId = setTimeout ( () => {
             $(this).find('img').show(500);
         }, 800);
@@ -107,7 +102,7 @@ $('#yourChoice').on('click', 'li', function(){
 
 // the Time Clock section
 myWorkoutPlaylist.timerClock = function() {
-    let session = 30;
+    let session = 300;
     let clockTime = session;
     let clockRunning = false;
     let countdownClock;
@@ -145,10 +140,9 @@ myWorkoutPlaylist.timerClock = function() {
         if (clockTime > 0 && clockRunning) {
             clockTime -= 1;
             updateClockCounter();
-                if(clockTime < 20) {
+                if(clockTime < 120) {
                     $('#clock-content').css('background', 'rgb(250, 185, 2)');
                 } 
-                
                 if(clockTime <= 10){
                     $('audio#pop')[0].play();
                     $('#clock-content').css('background', 'rgb(255, 0, 0)')
@@ -161,7 +155,6 @@ myWorkoutPlaylist.timerClock = function() {
 
 //Start-Stop button when click on
 $('#clock-button').on('click', function() {
-
     if($('#amount').is(':empty') || $('ol#yourChoice li').length === 0) {      
         Swal.fire({
             icon: 'warning',
@@ -170,7 +163,6 @@ $('#clock-button').on('click', function() {
             confirmButtonText: 'Got it!'
             });
     } else {
-
             if (clockRunning) {
                 clockRunning = false;
                 window.clearInterval(countdownClock);
