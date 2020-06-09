@@ -1,6 +1,22 @@
+.banner {
+    background-color: #EEE5E9;
+}
+#down {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+}
+form h2 {
+    text-align: center;
+}
+
 input[type=button] {
     @include inputButton;
     transition: box-shadow 0.5s ease-in-out, color 300ms ease-in-out;
+    margin-top: 40px;
 }
 input[type=button]:hover,
 input[type=button]:focus {
@@ -8,18 +24,43 @@ input[type=button]:focus {
     box-shadow: 0 0 30px 30px $styleColor inset;
 
 }
-.repsOptions {
-    padding-top: 40px;
-}
-
 .containerOfLists {
     margin: 40px auto;
 
+}
+.swal2-modal {
+    background-color: $decoColor;
+    border: 3px solid white;
+    font-family: $secondFont;
 }
 #amount {
     display: inline-block;
     font-size: 2rem;
     font-family: $secondFont;
-    box-shadow: inset 0 -0.5em 0 rgba(162, 94, 189, 0.3);
+    box-shadow: $boxShadow;
     transition: box-shadow .2s ease-in-out;
+}
+
+.flexTimer {
+    margin: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.popUp {
+    text-align: center;
+    background-color: $styleColor;
+    box-shadow: 20px 10px 5px $styleColor;
+    color: #ffff;
+    font-family: $secondFont;
+    padding: 5%;
+    display: none;
+    position: relative;
+    bottom: 10%;
+}
+
+
+.popUp h2 a {
+    text-decoration: underline;
+    color: $decoColor;
 }

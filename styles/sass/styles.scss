@@ -6,7 +6,6 @@
 @import 'footer';
 @import 'mediaQuery';
 
-
 // Universal for entire page
 html, 
 body {
@@ -14,9 +13,6 @@ body {
     background-color: $bgColor;
     margin: 0;
     padding: 0;
-}
-header {
-    height: 120vh;
 }
 img {
     display: block;
@@ -34,11 +30,13 @@ h2 {
     font-family: $secondFont;
 }
 h3 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-family: $mainFont;
+    color: $styleColor;
+    font-weight: 700;
     text-align: center;
-    padding: 40px 0;
 }
+
 h1,
 h2,
 h3 {

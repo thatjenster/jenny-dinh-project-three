@@ -1,32 +1,26 @@
-.mainWorkoutSection {
-	margin: 0 auto;
-	position: relative;
-    padding-bottom: 1.5rem;
-    display: flex;
-}
-
 #listOfWorkout {
-    width: 400px;
-    height: 400px;
-    overflow-y: scroll;
-    scrollbar-color: $styleColor $decoColor;
-    scrollbar-width: auto;
+	display: grid;
+	grid-template-columns: 2fr 2fr 2fr 2fr;
 }
-
+#image {
+	display: none;
+}
 li {
     list-style-type: none;
 	cursor: pointer;
 	position: relative;
 	font-size: 1.5rem;
 	font-family: $secondFont;
-	padding: 20px 0;
+	padding: 20px 0px;
 }
 
 li:hover,
-li:focus {
+li:focus  {
 	background: rgba(233, 155, 243, 0.1);
+
 }
-li:not(:last-child)::before {
+
+li::before {
 			content: "";
 			position: absolute;
 			top: 100%;
@@ -44,25 +38,27 @@ li:not(:last-child)::before {
 	text-align: center;
 }
 
-button {
+#clock-button,
+#reset {
 	background-color: transparent;
-	border: none;
+	border: 2.5px solid $styleColor;
+	border-radius: 5px;
 	outline: none;
 	color: black;
 	font-size: 1.3em;
+	padding: 10px;
 }
-
-button:disabled {
-	color: rgba($styleColor, 0.6);
+#reset:disabled {
+	color: black;
 }
 
 #clock-container {
-	margin: 30px 30px 30px auto;
-	border: 2px solid;
+	margin: 100px auto;
+	border: 10px solid;
 	border-color: $styleColor;
 	border-radius: 50%;
-	width: 300px;
-	height: 300px;
+	width: 400px;
+	height: 400px;
 	display: table;
 	overflow: hidden;
 	position: relative;
@@ -71,7 +67,10 @@ button:disabled {
 #clock-content {
 	display: table-cell;
 	vertical-align: middle;
+	background: radial-gradient(#faf7ff 30%, rgb(134, 198, 199) 70%);
+	transition: background 4s ease-in-out;
 }
+
 
 #clock-counter {
 	font-size: 5em;

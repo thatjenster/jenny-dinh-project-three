@@ -1,6 +1,13 @@
 // Make a name space object 
 const myWorkoutPlaylist = {};
 
+const arrayFullBody = ['Burpees', 'Frog Jump', 'Mountain Climbers', 'Butt Kicks', 'High Knee']
+
+const arrayLegs = ['Power Squat', 'Surrender', 'Calf Raises', 'Side to Side Hop', 'Skaters']
+
+const arrayAbs = ['Plank Hip Dips', 'Russian Twist', 'Bicycles Crunches', 'Plank Jacks', 'Sit ups']
+
+const arrayArms = ['Push Up', 'Pike Push Up', 'Tricep Dips', 'Spiderman Push Up', 'Inchworm']
 
 // When click 'Let's Sweat' button will scroll down to the main section with the ID of #down
 myWorkoutPlaylist.startButton = function(){
@@ -9,6 +16,11 @@ myWorkoutPlaylist.startButton = function(){
         $('html, body').stop().animate({
             scrollTop: $($(this).attr('href')).offset().top
         }, 'slow');
+        Swal.fire({
+            title: 'Please Choose the amount of Reps you wish to do',
+            text: 'Then choose only 4 moves to create your personal playlist',
+            confirmButtonText: 'Got it!'
+          });
     });
 }
 
@@ -18,43 +30,81 @@ myWorkoutPlaylist.delete = function deleteReps(){
     $('#amount').empty();  
 }
 
-myWorkoutPlaylist.showIntensityEasy = $('#easyBtn').on('click', function(){
+myWorkoutPlaylist.showIntensityEasy = 
+$('#easyBtn').on('click', function(){
     myWorkoutPlaylist.delete();
     let easyBtn = '15 Reps of:'
     $('#amount').append(`${easyBtn}`);
 })
 
-myWorkoutPlaylist.showIntensityModerate = $('#modBtn').on('click', function(){
+myWorkoutPlaylist.showIntensityModerate = 
+$('#modBtn').on('click', function(){
     myWorkoutPlaylist.delete();
     let modBtn = '30 Reps of:'
     $('#amount').append(`${modBtn}`);
 })
 
-myWorkoutPlaylist.showIntensityIntense = $('#intenseBtn').on('click', function(){
+myWorkoutPlaylist.showIntensityIntense = 
+$('#intenseBtn').on('click', function(){
     myWorkoutPlaylist.delete();
     let intenseBtn = '50 Reps of:'
     $('#amount').append(`${intenseBtn}`);
 })
 
 // when you click on a workout move it will dispense to the playlist
-myWorkoutPlaylist.listToMove =
-$('#listOfWorkout').on('click', 'li', function () {
-    console.log(this)
-    $(this)
-      .appendTo( $('#yourChoice') )
+myWorkoutPlaylist.workoutMovements = function() {
+    let delay=1000, timeoutId;
+    
+    $('.chooseThis').on('mouseover', function(){
+      
+            timeoutId = setTimeout ( () => {
+                $(this).find('img').show(500);
+                console.log($(this).find('img'));
+            }, 800);
+        })
+    $('.chooseThis').on('mouseout', function(){
+        clearTimeout(timeoutId);
+        $(this).find('img').hide(500);
+    })
+
+
+    }
+
+myWorkoutPlaylist.dispensePlaylist = 
+
+$('.chooseThis').on('click', function (e) { 
+    if($('#yourChoice')[0].children.length >= 4 ) {
+        Swal.fire({
+            title: 'Sorry!',
+            text: 'You can only choose 4',
+            confirmButtonText: 'OKAY'
+          });
+
+    } else {
+        console.log(e);
+        $(this).appendTo($('#yourChoice'));
+        $(this).off('mouseover mouseout'); 
+        $(this).find('#image').css('display', 'none');
+   
+  
+
+        console.log($(this));
+    }
 });
 
 myWorkoutPlaylist.clickToMoveBack = 
 $('#yourChoice').on('click', 'li', function(){
-    $(this).appendTo($('#listOfWorkout'))
+    $(this).appendTo($('#listOfWorkout')); 
+    $(this).find('#image').show();
 });
 
 
+// the Time Clock section
 myWorkoutPlaylist.timerClock = function() {
-    let session = 300;
+    let session = 30;
     let clockTime = session;
     let clockRunning = false;
-    let countdownID;
+    let countdownClock;
     
     let inMinSec = function(time) {
         let minute = Math.floor(time / 60);
@@ -89,23 +139,46 @@ myWorkoutPlaylist.timerClock = function() {
         if (clockTime > 0 && clockRunning) {
             clockTime -= 1;
             updateClockCounter();
+                if(clockTime < 20 && clockTime > 10) {
+                    $('#clock-content').css('background', 'rgb(250, 185, 2)');
+
+                } 
+
+                if(clockTime <= 10){
+                    $('audio#pop')[0].play();
+                    $('#clock-content').css('background', 'rgb(255, 0, 0)')
+                }
+        }
+        else if (clockTime === 0) {
+            $('.popUp').show();
         }
     };
+
     //Start-Stop button when click on
     $('#clock-button').on('click', function() {
+        if($('#clock-button').text('START')) {
+            $('audio#readySetgo')[0].play();
+        }
+            
+
+        console.log('This button was pressed', $('#clock-button'));
+
+    setTimeout(function(){
+
         if (clockRunning) {
             clockRunning = false;
-            window.clearInterval(countdownID);
+            window.clearInterval(countdownClock);
             $('#clock-button').text('RESUME');
             $('#reset').attr('disabled', false);
         } else {
             clockRunning = true;
-            countdownID = window.setInterval(countdown, 1000);
+            countdownClock = window.setInterval(countdown, 1000);
             $('#clock-button').text('STOP');
             $('#reset').attr('disabled', true);
         }
-    });
 
+    }, 2200);    
+    });
     //Button that reset the clock 
     $('#reset').on('click', function() {
         resetApp();
@@ -116,10 +189,13 @@ myWorkoutPlaylist.timerClock = function() {
 myWorkoutPlaylist.init = () => {
     myWorkoutPlaylist.startButton();
     myWorkoutPlaylist.timerClock();
+    myWorkoutPlaylist.workoutMovements();
 }
 
 $(document).ready(function(){
     myWorkoutPlaylist.init();
+    console.log('start');
+
 });
 
    

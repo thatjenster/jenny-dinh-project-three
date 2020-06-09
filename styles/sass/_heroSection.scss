@@ -69,11 +69,11 @@
     font-weight: 400;
 }
 
-button {
+.startBtn {
     @include primaryButton;
 }
-button:hover,
-button:focus {
+.startBtn:hover,
+.startBtn:focus {
     background-color: #F8F7FF;
 }
 a {

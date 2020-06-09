@@ -4,10 +4,12 @@ $primaryColor: #cc8e7f;
 $bgColor: #F8F7FF;
 $styleColor: #6C4B5E;
 $decoColor: #ECBEB4;
+$boxShadow: inset 0 -0.5em 0 rgba(162, 94, 189, 0.3);
 
 @mixin wrapper {
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0;
 }
 
 @mixin primaryButton {

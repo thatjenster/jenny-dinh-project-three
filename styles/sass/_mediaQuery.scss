@@ -1,10 +1,11 @@
 // Responsive Design from Desktop to Tablet 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
    
     @keyframes border {
         display: none;
     }
-    .flexContainer {
+    .flexContainer,
+    .flexTimer {
         flex-direction: column;
     }
     .content{
@@ -15,5 +16,44 @@
         width: 100%;
         margin: 0;
         padding: 40px;
+    }
+    .mainWorkoutSection {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .bodyPartsWorkout {
+        margin: 30px auto;
+    }
+    #listOfWorkout {
+        grid-template-columns: 2fr 2fr;
+    }
+    h3 {
+        text-align: center;
+    }
+
+}
+
+
+// Responsive Design from Tablet to Mobile
+@media only screen and (max-width: 420px) {
+
+    .repsOptions {
+        display: flex;
+        flex-direction: column;
+    }
+    input[type=button] {
+        margin: 10px auto;
+        width: 100%;
+    }
+    #clock-container {
+        width: 310px;
+        height: 310px;
+    }
+    h2 {
+        text-align: center;
+    }
+    li {
+        font-size: 1rem;
     }
 }

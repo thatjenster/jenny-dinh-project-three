@@ -2,18 +2,22 @@ footer {
     background-color: $primaryColor;
 }
 .awesome {
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 20px;
 }
 .awesome:hover,
 .awesome:focus {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px $styleColor, 0 0 30px $styleColor, 0 0 40px $styleColor, 0 0 60px $styleColor, 0 0 50px $styleColor;
 }
-p {
+footer p {
+    margin: 0 auto;
+    padding: 20px;
     font-size: 2rem;
     font-family: $mainFont;
     font-weight: 700;
 }
-.floatContainer {
-    float: right;
+.footerContent {
+    margin: 0;
+    font-size: 1rem;
+    font-family: $secondFont;
 }

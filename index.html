@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Sweaty in Minutes</title>
+    <title>Sweat - thatjenster</title>
     <link href="https://fonts.googleapis.com/css2?family=Catamaran&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image" href="assets/hmb-favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="https://use.fontawesome.com/430a1f2223.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -33,164 +36,121 @@
     <!-- main section of page begins -->
     <main>
         <!-- wrapper begins -->
-        <section class="wrapperContainer">
-            <div id="down">
-            <!-- div of form and options of workout begins -->
-                <h2>Choose your level of INTENSITY:</h2>
-                <form class="repsOptions">
-                    <input type="button" id="easyBtn" value="Easy">
-                    <input type="button" id="modBtn"value="Moderate">
-                    <input type="button" id="intenseBtn" value="Hard">
-                </form>
-            <div>
+        <section class="banner">
+            <div class="wrapperContainer">
+                <div id="down">
+                <!-- div of form and options of workout begins -->
+                    <form>
+                        <h2>Choose your REPS:</h2>
+                        <input type="button" id="easyBtn" value="15 Reps">
+                        <input type="button" id="modBtn"value="30 Reps">
+                        <input type="button" id="intenseBtn" value="50 Reps">
+                    </form>
+                <div>
+            </div>        
         </section>
         <!-- Section of the scroll bar with workout moves -->
-        <section class="wrapperContainer mainWorkoutSection">
-            <div id="movesOfExercise">
-                <h3>Please Choose only 4:</h3>
-                <div class="listOfWorkout">
+        <section>
+            <div class="wrapperContainer">
+                <div class="mainWorkoutSection">
+                    <h3>Please Choose Only 4 moves!</h3>
                     <ul id="listOfWorkout">
-
-                        <li id="chooseThis">Burpees
-                            <span class="hiddenImg">
-                                <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/burpees-exercise-illustration.gif" alt="Burpees exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array1">Burpees
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/burpees-exercise-illustration.gif" alt="Burpees exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Frog Jump
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/frog-jumps-exercise-illustration.gif" alt="Frog Jump exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array1">Frog Jump
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/frog-jumps-exercise-illustration.gif" alt="Frog Jump exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">In and Out Jacks
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/09/in-and-out-jack-exercise-illustration-spotebi.gif" alt="In and Out Jacks exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array1">Mountain Climbers
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/mountain-climbers-exercise-illustration-spotebi.gif" alt="Mountain Climbers exercise guide with instructions and demonstration" id="image">
                         </li>
-
-                        <li id="chooseThis">High Knee
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/high-knees-exercise-illustration.gif" alt="Knee High exercise guide with instructions and demonstration">
-                            <span>
+                        <li class="chooseThis array1">Butt Kicks
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/butt-kicks-exercise-illustration-spotebi.gif" alt="Butt Kicks guide with instructions and demonstration" id="image">
                         </li>
-
-                        <li id="chooseThis">Pike Push Up
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/03/pike-push-up-exercise-illustration-spotebi.gif" alt="Pike Push Up exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array1">High Knee
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/high-knees-exercise-illustration.gif" alt="Knee High exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Power Squat
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/08/jump-squat-exercise-illustration.gif" alt="Power Squats exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array2">Power Squat
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/08/jump-squat-exercise-illustration.gif" alt="Power Squats exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Plank Hip Dips
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/01/plank-hip-dips-exercise-illustration.gif" alt="Plank Hip Dips exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array2">Surrender
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/02/surrender-exercise-illustration-spotebi.gif" alt="Surrender exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Mountain Climbers
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/mountain-climbers-exercise-illustration-spotebi.gif" alt="Mountain Climbers exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array2">Calf Raises
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/07/plie-squat-calf-raise-exercise-illustration-spotebi.gif" alt="Calf Raises guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Tricep Dips
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/tricep-dips-exercise-illustration-spotebi.gif" alt="Triceps Dips exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array2">Side to Side Hop
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/08/side-to-side-hops-exercise-illustration-spotebi.gif" alt="Side to Side Hop guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Sit ups
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/sit-up-exercise-illustration.gif" alt="Sit Ups exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array2">Skaters
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/skaters-exercise-illustration.gif" alt="Skaters exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Spiderman Push Up
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/spiderman-push-up-exercise-illustration.gif" alt="Spiderman Pushup exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array3">Plank Hip Dips
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/01/plank-hip-dips-exercise-illustration.gif" alt="Plank Hip Dips exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Surrender
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/02/surrender-exercise-illustration-spotebi.gif" alt="Surrender exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array3">Russian Twist
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/russian-twist-exercise-illustration.gif" alt="Russian Twist guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Calf Raises
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/07/plie-squat-calf-raise-exercise-illustration-spotebi.gif" alt="Calf Raises guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array3">Bicycles Crunches
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/bicycle-crunches-exercise-illustration.gif" alt="Bicycles Crunches guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Butt Kicks
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/butt-kicks-exercise-illustration-spotebi.gif" alt="Butt Kicks guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array3">Plank Jacks
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.gif" alt="Plank Jacks guide with instructions and demonstration" id="image">
                         </li>
-
-                        <li id="chooseThis">Russian Twist
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/russian-twist-exercise-illustration.gif" alt="Russian Twist guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array3">Sit ups
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/sit-up-exercise-illustration.gif" alt="Sit Ups exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Squat Side Kick
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/02/squat-side-kick-exercise-illustration.gif" alt="Squat Side Kick guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array4">Push Up
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/push-up-exercise-illustration.gif" alt="Push up exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Side to Side Hop
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/08/side-to-side-hops-exercise-illustration-spotebi.gif" alt="Side to Side Hop guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array4">Pike Push Up
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2016/03/pike-push-up-exercise-illustration-spotebi.gif" alt="Pike Push Up exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Bicycles Crunches
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2014/10/bicycle-crunches-exercise-illustration.gif" alt="Bicycles Crunches guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array4">Tricep Dips
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/tricep-dips-exercise-illustration-spotebi.gif" alt="Triceps Dips exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Plank Jacks
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.gif" alt="Plank Jacks guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array4">Spiderman Push Up
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/spiderman-push-up-exercise-illustration.gif" alt="Spiderman Pushup exercise guide with instructions and demonstration"  id="image">
                         </li>
-
-                        <li id="chooseThis">Skaters
-                            <span class="hiddenImg">
-                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/04/skaters-exercise-illustration.gif" alt="Skaters exercise guide with instructions and demonstration">
-                            </span>
+                        <li class="chooseThis array4">Inchworm
+                            <img src="https://www.cdn.spotebi.com/wp-content/uploads/2015/01/inchworm-exercise-illustration-spotebi.gif" alt="Inchworm guide with instructions and demonstration"  id="image">
                         </li>
-                    </ul>
+                    </ul>     
                 </div>
-            </div>
-            <div class="containerOfLists">
-                <h2>Your Workout of the Day</h2>
-                <span id="amount"></span>
-                <div>
-                    <ol id="yourChoice"></ol>
-                </div>
-            </div>
-            <div class="timerContainer" class="wrapperContainer">
-                <div id="clock-container" >
-                    <div id="clock-content">
-                        <div>You got this!</div>
-                        <div id="clock-counter">5:00</div>
-                        <button id="clock-button">START</button>
-                        <button id="reset" disabled>RESET</button>
-                    </div>
-                </div>
-            </div>
+            </div>        
         </section>
+        <section>
+            <div class="wrapperContainer">
+                <div class="flexTimer">
+                    <div class="containerOfLists">
+                        <h2>Your Workout of the Day</h2>
+                        <span id="amount"></span>
+                        <div>
+                            <ol id="yourChoice"></ol>
+                        </div>
+                    </div>
+                    <div class="timerContainer">
+                        <div id="clock-container">
+                            <audio id="pop">
+                                <source src="assets/Robot_blip_2-Marianne_Gagnon-299056732.wav" type="audio/wav">
+                            </audio>
+                            <audio id="readySetgo">
+                                <source src="assets/451271__alivvie__ready-set-go.wav" type="audio/wav">
+                            </audio>
+                            <div id="clock-content">
+                                <div>You got this!</div>
+                                <div id="clock-counter">5:00</div>
+                                <button id="clock-button">START</button>
+                                <button id="reset" disabled>RESET</button>
+                            </div>
+                        </div>   
+                        <div class="popUp">
+                            <h2>Time's Up! Would you like to <a href="index.html">Start again?</a></h2>
+                        </div> 
+                    </div>
+                </div>    
+            </div>
+        </section>            
     </main>
     <!-- main section of page ends -->
     <!-- footer content goes here! -->
@@ -204,12 +164,12 @@
                 <a href="https://thatjenster.wordpress.com/"><i class="fa fa-wordpress awesome"></i></a>
                 <a href="https://github.com/that-jenster"><i class="fa fa-github awesome"></i></a>
             </div>
+            <p class="footerContent">All GIF demonstration are by Spotebi.com</p>
         </div>
     </footer>
     <!-- Footer ends here -->
     <!-- Load Jquery and Javascript File here! -->
    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="javascript/app.js"></script>
-
 </body>
 </html>

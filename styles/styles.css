@@ -309,7 +309,7 @@ html {
   font-weight: 400;
 }
 
-button {
+.startBtn {
   font-family: "Lato", sans-serif;
   font-size: 1.5rem;
   background: #cc8e7f;
@@ -318,14 +318,37 @@ button {
   padding: 10px;
 }
 
-button:hover,
-button:focus {
+.startBtn:hover,
+.startBtn:focus {
   background-color: #F8F7FF;
 }
 
 a {
   color: black;
   text-decoration: none;
+}
+
+.banner {
+  background-color: #EEE5E9;
+}
+
+#down {
+  width: 100%;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 200px;
+}
+
+form h2 {
+  text-align: center;
 }
 
 input[type=button] {
@@ -345,6 +368,7 @@ input[type=button] {
   transition: color 300ms ease-in-out, -webkit-box-shadow 0.5s ease-in-out;
   transition: box-shadow 0.5s ease-in-out, color 300ms ease-in-out;
   transition: box-shadow 0.5s ease-in-out, color 300ms ease-in-out, -webkit-box-shadow 0.5s ease-in-out;
+  margin-top: 40px;
 }
 
 input[type=button]:hover,
@@ -354,12 +378,14 @@ input[type=button]:focus {
           box-shadow: 0 0 30px 30px #6C4B5E inset;
 }
 
-.repsOptions {
-  padding-top: 40px;
-}
-
 .containerOfLists {
   margin: 40px auto;
+}
+
+.swal2-modal {
+  background-color: #ECBEB4;
+  border: 3px solid white;
+  font-family: "Lato", sans-serif;
 }
 
 #amount {
@@ -374,21 +400,43 @@ input[type=button]:focus {
   transition: box-shadow .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
 }
 
-.mainWorkoutSection {
-  margin: 0 auto;
-  position: relative;
-  padding-bottom: 1.5rem;
+.flexTimer {
+  margin: 100px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.popUp {
+  text-align: center;
+  background-color: #6C4B5E;
+  -webkit-box-shadow: 20px 10px 5px #6C4B5E;
+          box-shadow: 20px 10px 5px #6C4B5E;
+  color: #ffff;
+  font-family: "Lato", sans-serif;
+  padding: 5%;
+  display: none;
+  position: relative;
+  bottom: 10%;
+}
+
+.popUp h2 a {
+  text-decoration: underline;
+  color: #ECBEB4;
 }
 
 #listOfWorkout {
-  width: 400px;
-  height: 400px;
-  overflow-y: scroll;
-  scrollbar-color: #6C4B5E #ECBEB4;
-  scrollbar-width: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 2fr 2fr;
+      grid-template-columns: 2fr 2fr 2fr 2fr;
+}
+
+#image {
+  display: none;
 }
 
 li {
@@ -397,7 +445,7 @@ li {
   position: relative;
   font-size: 1.5rem;
   font-family: "Lato", sans-serif;
-  padding: 20px 0;
+  padding: 20px 0px;
 }
 
 li:hover,
@@ -405,7 +453,7 @@ li:focus {
   background: rgba(233, 155, 243, 0.1);
 }
 
-li:not(:last-child)::before {
+li::before {
   content: "";
   position: absolute;
   top: 100%;
@@ -422,25 +470,28 @@ li:not(:last-child)::before {
   text-align: center;
 }
 
-button {
+#clock-button,
+#reset {
   background-color: transparent;
-  border: none;
+  border: 2.5px solid #6C4B5E;
+  border-radius: 5px;
   outline: none;
   color: black;
   font-size: 1.3em;
+  padding: 10px;
 }
 
-button:disabled {
-  color: rgba(108, 75, 94, 0.6);
+#reset:disabled {
+  color: black;
 }
 
 #clock-container {
-  margin: 30px 30px 30px auto;
-  border: 2px solid;
+  margin: 100px auto;
+  border: 10px solid;
   border-color: #6C4B5E;
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   display: table;
   overflow: hidden;
   position: relative;
@@ -449,6 +500,9 @@ button:disabled {
 #clock-content {
   display: table-cell;
   vertical-align: middle;
+  background: radial-gradient(#faf7ff 30%, #86c6c7 70%);
+  -webkit-transition: background 4s ease-in-out;
+  transition: background 4s ease-in-out;
 }
 
 #clock-counter {
@@ -470,7 +524,7 @@ footer {
 }
 
 .awesome {
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding: 20px;
 }
 
@@ -479,24 +533,29 @@ footer {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #6C4B5E, 0 0 30px #6C4B5E, 0 0 40px #6C4B5E, 0 0 60px #6C4B5E, 0 0 50px #6C4B5E;
 }
 
-p {
+footer p {
+  margin: 0 auto;
+  padding: 20px;
   font-size: 2rem;
   font-family: "Shadows Into Light", cursive;
   font-weight: 700;
 }
 
-.floatContainer {
-  float: right;
+.footerContent {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
   @-webkit-keyframes border {
     display: none;
   }
   @keyframes border {
     display: none;
   }
-  .flexContainer {
+  .flexContainer,
+  .flexTimer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -511,6 +570,54 @@ p {
     margin: 0;
     padding: 40px;
   }
+  .mainWorkoutSection {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .bodyPartsWorkout {
+    margin: 30px auto;
+  }
+  #listOfWorkout {
+    -ms-grid-columns: 2fr 2fr;
+        grid-template-columns: 2fr 2fr;
+  }
+  h3 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .repsOptions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  input[type=button] {
+    margin: 10px auto;
+    width: 100%;
+  }
+  #clock-container {
+    width: 310px;
+    height: 310px;
+  }
+  h2 {
+    text-align: center;
+  }
+  li {
+    font-size: 1rem;
+  }
 }
 
 html,
@@ -521,10 +628,6 @@ body {
   padding: 0;
 }
 
-header {
-  height: 120vh;
-}
-
 img {
   display: block;
   width: 100%;
@@ -533,6 +636,7 @@ img {
 .wrapperContainer {
   max-width: 1300px;
   margin: 0 auto;
+  padding: 0;
 }
 
 h1 {
@@ -546,10 +650,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-family: "Shadows Into Light", cursive;
+  color: #6C4B5E;
+  font-weight: 700;
   text-align: center;
-  padding: 40px 0;
 }
 
 h1,
