@@ -383,7 +383,7 @@ input[type=button]:focus {
 }
 
 .swal2-modal {
-  background-color: #ECBEB4;
+  background-color: #EEE5E9;
   border: 3px solid white;
   font-family: "Lato", sans-serif;
 }
@@ -548,12 +548,6 @@ footer p {
 }
 
 @media only screen and (max-width: 800px) {
-  @-webkit-keyframes border {
-    display: none;
-  }
-  @keyframes border {
-    display: none;
-  }
   .flexContainer,
   .flexTimer {
     -webkit-box-orient: vertical;
@@ -617,6 +611,7 @@ footer p {
   }
   li {
     font-size: 1rem;
+    padding: 0;
   }
 }
 

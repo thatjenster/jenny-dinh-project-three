@@ -1,9 +1,5 @@
 // Responsive Design from Desktop to Tablet 
 @media only screen and (max-width: 800px) {
-   
-    @keyframes border {
-        display: none;
-    }
     .flexContainer,
     .flexTimer {
         flex-direction: column;
@@ -34,7 +30,6 @@
 
 }
 
-
 // Responsive Design from Tablet to Mobile
 @media only screen and (max-width: 420px) {
 
@@ -55,5 +50,6 @@
     }
     li {
         font-size: 1rem;
+        padding: 0;
     }
 }

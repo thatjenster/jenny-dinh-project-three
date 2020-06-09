@@ -51,9 +51,10 @@ $('#intenseBtn').on('click', function(){
     $('#amount').append(`${intenseBtn}`);
 })
 
+let timeoutId = null;
 // when you click on a workout move it will dispense to the playlist
 myWorkoutPlaylist.workoutMovements = function() {
-    let delay=1000, timeoutId;
+
     
     $('.chooseThis').on('mouseover', function(){
       
@@ -66,8 +67,6 @@ myWorkoutPlaylist.workoutMovements = function() {
         clearTimeout(timeoutId);
         $(this).find('img').hide(500);
     })
-
-
     }
 
 myWorkoutPlaylist.dispensePlaylist = 
@@ -81,21 +80,29 @@ $('.chooseThis').on('click', function (e) {
           });
 
     } else {
-        console.log(e);
-        $(this).appendTo($('#yourChoice'));
-        $(this).off('mouseover mouseout'); 
+        clearTimeout(timeoutId);
+        $(this).delay(100).appendTo($('#yourChoice'));
+        $(this).off('mouseover'); 
         $(this).find('#image').css('display', 'none');
    
-  
-
-        console.log($(this));
     }
 });
 
 myWorkoutPlaylist.clickToMoveBack = 
 $('#yourChoice').on('click', 'li', function(){
     $(this).appendTo($('#listOfWorkout')); 
-    $(this).find('#image').show();
+    //$(this).find('#image').show();
+    $('.chooseThis').on('mouseover', function(){
+      
+        timeoutId = setTimeout ( () => {
+            $(this).find('img').show(500);
+            console.log($(this).find('img'));
+        }, 800);
+    })
+    $('.chooseThis').on('mouseout', function(){
+        clearTimeout(timeoutId);
+        $(this).find('img').hide(500);
+    })
 });
 
 
@@ -156,28 +163,36 @@ myWorkoutPlaylist.timerClock = function() {
 
     //Start-Stop button when click on
     $('#clock-button').on('click', function() {
-        if($('#clock-button').text('START')) {
-            $('audio#readySetgo')[0].play();
-        }
-            
-
-        console.log('This button was pressed', $('#clock-button'));
-
-    setTimeout(function(){
-
-        if (clockRunning) {
-            clockRunning = false;
-            window.clearInterval(countdownClock);
-            $('#clock-button').text('RESUME');
-            $('#reset').attr('disabled', false);
+    
+        // if($('#amount').is(':empty') || $('ol#yourChoice li').length === 0) {
+        if(false){       
+            Swal.fire({
+                icon: 'warning',
+                title: 'Please Choose the amount of Reps and movement',
+                text: 'Yoou need atleast 4 workout moves!',
+                confirmButtonText: 'Got it!'
+              });
         } else {
-            clockRunning = true;
-            countdownClock = window.setInterval(countdown, 1000);
-            $('#clock-button').text('STOP');
-            $('#reset').attr('disabled', true);
-        }
 
-    }, 2200);    
+            // setTimeout(function(){
+
+                if (clockRunning) {
+                    clockRunning = false;
+                    window.clearInterval(countdownClock);
+                    $('#clock-button').text('RESUME');
+                    $('#reset').attr('disabled', false).show();
+                } else {
+                    clockRunning = true;
+                    $('audio#readySetgo')[0].play();
+                    setTimeout(function(){
+                        countdownClock = window.setInterval(countdown, 1000);
+                    }, 2200); 
+                    $('#clock-button').text('STOP');
+                    $('#reset').attr('disabled', true).hide();
+                }
+        
+            // }, 2200); 
+        }
     });
     //Button that reset the clock 
     $('#reset').on('click', function() {
