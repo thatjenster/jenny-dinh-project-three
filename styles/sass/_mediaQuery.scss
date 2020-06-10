@@ -1,50 +1,65 @@
-// Responsive Design from Desktop to Tablet 
+// Responsive Design from Desktop to Tablet
 @media only screen and (max-width: 800px) {
-    .flexContainer,
-    .flexTimer {
-        flex-direction: column;
-    }
-    .content{
-        background-image: none;
-    }
-    .content,
-    .imageContent {
-        width: 100%;
-        margin: 0;
-        padding: 40px;
-    }
-    .mainWorkoutSection {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .bodyPartsWorkout {
-        margin: 30px auto;
-    }
-    #listOfWorkout {
-        grid-template-columns: 2fr 2fr;
-    }
-    h3 {
-        text-align: center;
-    }
-
+  .flexContainer,
+  .flexTimer {
+    flex-direction: column;
+  }
+  .content {
+    background-image: none;
+  }
+  .content,
+  .imageContent {
+    width: 100%;
+    margin: 0;
+    padding: 40px;
+  }
+  .mainWorkoutSection {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .bodyPartsWorkout {
+    margin: 30px auto;
+  }
+  #listOfWorkout {
+    grid-template-columns: 2fr 2fr;
+  }
+  h3 {
+    text-align: center;
+  }
 }
 
 // Responsive Design from Tablet to Mobile
-@media only screen and (max-width: 420px) {
-    input[type=button] {
-        padding: 10px 20px;
-        width: 100%;
-    }
-    #clock-container {
-        width: 310px;
-        height: 310px;
-    }
-    h2 {
-        text-align: center;
-    }
-    li {
-        font-size: 1rem;
-        padding: 5px;
-    }
+@media only screen and (max-width: 461px) {
+  input[type='button'] {
+    padding: 10px 20px;
+    width: 100%;
+  }
+  #clock-container {
+    width: 310px;
+    height: 310px;
+  }
+  h2 {
+    text-align: center;
+  }
+  li {
+    font-size: 1rem;
+    padding: 5px;
+  }
+
+  #down {
+    margin-bottom: 3rem;
+  }
+
+  .flexTimer {
+    margin-top: 3rem;
+  }
+
+  .containerOfLists {
+    margin: 0 auto;
+  }
+
+  #clock-container {
+    margin: 1rem auto;
+  }
 }
