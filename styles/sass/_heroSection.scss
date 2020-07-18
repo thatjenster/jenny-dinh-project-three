@@ -58,17 +58,14 @@
 }
 .content,
 .imageContent {
-    margin: 50px;
-    
+    margin: 50px; 
 }
-
 .content p {
     font-family: $secondFont;
     font-size: 1.2rem;
     line-height: 2rem;
     font-weight: 400;
 }
-
 .startBtn {
     @include primaryButton;
 }

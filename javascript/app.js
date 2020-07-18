@@ -102,7 +102,7 @@ $('#yourChoice').on('click', 'li', function(){
 
 // the Time Clock section
 myWorkoutPlaylist.timerClock = function() {
-    let session = 300;
+    let session = 30;
     let clockTime = session;
     let clockRunning = false;
     let countdownClock;
@@ -140,7 +140,7 @@ myWorkoutPlaylist.timerClock = function() {
         if (clockTime > 0 && clockRunning) {
             clockTime -= 1;
             updateClockCounter();
-                if(clockTime < 120) {
+                if(clockTime < 20) {
                     $('#clock-content').css('background', 'rgb(250, 185, 2)');
                 } 
                 if(clockTime <= 10){
